@@ -1,0 +1,69 @@
+body{
+	font-family: Consolas, monaco, monospace;
+}
+
+
+
+nav{
+	background: gray;
+	float: left;
+	width: 10em;
+	height: 35em;
+}
+
+nav ul{
+	margin: 2px 0 0 0;
+	padding: 0;
+	display: block;
+}
+
+nav li{
+	display: block;
+	list-style: none;
+
+}
+
+nav a{
+	transition: border 0.1s, background 0.1s;
+	margin: 0 2px;
+	padding: 0.5em 0;
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	background: #AAA;
+	border: 2px solid gray;
+	text-transform: uppercase;
+	font-size: 1em;
+}
+
+nav a:hover{
+	border: 2px solid black;
+}
+
+nav a.active-link{
+	background: #DDF;
+}
+
+nav a img{
+	visibility: hidden;
+	width: 25px;
+	height: 16px;
+}
+
+nav a.active-link img{
+	visibility: visible;
+}
+
+
+.tab{
+	float: left;
+	padding: 0 2em 0 2em;
+	background: #FDF;
+	height: 35em;
+	width: 35em;
+}
+
+.tab:not(.active-tab){
+	visibility: hidden;
+	height: 0;
+}
