@@ -10,6 +10,7 @@ function setup(){
 	var tab = getActiveTabFromUrl();
 	setActiveTab(tab);
 	$("nav a").click(navClick);
+	setupChatbot();
 }
 
 function getActiveTabFromUrl(){
@@ -46,4 +47,22 @@ function keyHandler(event){
 		var newTab = TABS[mod(TABS.length, currentTabIndex + indexChange)];
 		setActiveTab(newTab);	
 	}
+}
+
+function setupChatbot(){
+	$("#send-chatbot-input").click(
+		function(){
+			sendChatbotInput($("#chatbot-input").val());
+		});
+}
+
+function sendChatbotInput(input){
+	console.log("senc chatbot input:" + input);	
+	formattedInput = input.replace(" ", "+");
+	$.ajax({
+	  url: "http://localhost:5001/?input=" + formattedInput,
+	  context: $("#chatbot-output")
+	}).done(function(data) {
+	  $( this ).html(data);
+	});
 }

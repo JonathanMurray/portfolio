@@ -72,3 +72,22 @@ nav a.active-link img{
 	visibility: hidden;
 	height: 0;
 }
+
+
+#chatbot-output{
+	font-size: 0.75em;
+}
+
+#chatbot-demo-section{
+	margin-top: 1em;
+	float:left;
+	width: 44%;
+	display: inline-block;
+}
+
+#chatbot-description-section{
+	margin-top: 1em;
+	float:left;
+	width: 54%;
+	display: inline-block;
+}
