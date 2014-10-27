@@ -24,7 +24,7 @@ nav li{
 }
 
 nav a{
-	transition: border 0.1s, background 0.1s;
+	transition: border 0.1s, background 0.3s, color 1s;
 	margin: 0 2px;
 	padding: 0.5em 0;
 	display: block;
@@ -41,7 +41,8 @@ nav a:hover{
 }
 
 nav a.active-link{
-	background: #DDF;
+	background: #EB7;
+	color: #046;
 }
 
 nav a img{
@@ -58,9 +59,13 @@ nav a.active-link img{
 .tab{
 	float: left;
 	padding: 0 2em 0 2em;
-	background: #FDF;
+	background: #FD9;
 	height: 35em;
-	width: 35em;
+	width: 45em;
+}
+
+.tab > iframe{
+	margin-top: 2em;
 }
 
 .tab:not(.active-tab){
