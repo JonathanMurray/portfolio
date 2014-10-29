@@ -11,6 +11,7 @@ function setup(){
 	setActiveTab(tab);
 	$("nav a").click(navClick);
 	setupChatbot();
+	setupNavigationArrows();
 }
 
 function getActiveTabFromUrl(){
@@ -35,8 +36,6 @@ function setActiveTab(tabName){
 }
 
 function keyHandler(event){
-	var currentTab = getActiveTabFromUrl();
-	var currentTabIndex = TABS.indexOf(currentTab);
 	var indexChange = 0;
 	if(event.keyCode == 37){ // left arrow
 		indexChange = - 1;
@@ -44,9 +43,17 @@ function keyHandler(event){
 		indexChange = 1;
 	}
 	if(indexChange != 0){
-		var newTab = TABS[mod(TABS.length, currentTabIndex + indexChange)];
-		setActiveTab(newTab);	
+		changeTab(indexChange);	
 	}
+}
+
+// indexChange == 1 ==> next tab
+// indexChange == -1 ==> prev. tab
+function changeTab(indexChange){
+	var currentTab = getActiveTabFromUrl();
+	var currentTabIndex = TABS.indexOf(currentTab);
+	var newTab = TABS[mod(TABS.length, currentTabIndex + indexChange)];
+	setActiveTab(newTab);	
 }
 
 function setupChatbot(){
@@ -65,4 +72,15 @@ function sendChatbotInput(input){
 	}).done(function(data) {
 	  $( this ).html(data);
 	});
+}
+
+function setupNavigationArrows(){
+	$(".right-arrow-link").click(
+		function(){
+			changeTab(1);
+		});
+	$(".left-arrow-link").click(
+		function(){
+			changeTab(-1);
+		});
 }
