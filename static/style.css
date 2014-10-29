@@ -101,14 +101,14 @@ nav .demo-icon{
 #chatbot-demo-section{
 	margin-top: 1em;
 	float:left;
-	width: 44%;
+	width: 52%;
 	display: inline-block;
 }
 
 #chatbot-description-section{
 	margin-top: 1em;
 	float:left;
-	width: 54%;
+	width: 46%;
 	display: inline-block;
 }
 
@@ -121,4 +121,17 @@ nav .demo-icon{
 .arrow-icon:hover{
 	cursor: pointer;
 	background: #BBD;
+}
+
+#genetics-img{
+	width: 35%;
+	display: inline-block;
+}
+
+#genetics-abstract{
+	width: 60%;
+	display: inline-block;
+	font-family: Georgia, serif;
+	font-style: italic;
+	vertical-align: top
 }
