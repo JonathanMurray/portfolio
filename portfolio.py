@@ -5,6 +5,7 @@ def layout():
 	tabs = [
 		{"name":"about", "link_text":"about"},
 		{"name":"chatbot", "link_text":"chatbot", "demo":True},
+		{"name":"pong", "link_text":"pong", "demo":True},
 		{"name":"genetic-elevators", "link_text":"genetics"},
 		{"name":"soundcloud", "link_text":"soundcloud"},
 		{"name":"youtube", "link_text":"youtube"},

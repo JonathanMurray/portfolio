@@ -7,7 +7,7 @@ body{
 nav{
 	background: gray;
 	float: left;
-	width: 10em;
+	width: 13em;
 	height: 35em;
 }
 
@@ -134,4 +134,10 @@ nav .demo-icon{
 	font-family: Georgia, serif;
 	font-style: italic;
 	vertical-align: top
+}
+
+#pong-canvas{
+	margin-top: 2em;
+	background: #000;
+	border: 2px solid #55F;
 }

@@ -5,6 +5,8 @@ function mod(n, m) {
 
 $(document).ready(setup);
 $(document).keydown(keyHandler);
+$(document).keyup(keyHandler);
+
 
 function setup(){
 	var tab = getActiveTabFromUrl();
@@ -12,6 +14,7 @@ function setup(){
 	$("nav a").click(navClick);
 	setupChatbot();
 	setupNavigationArrows();
+	setupPongCanvas();
 }
 
 function getActiveTabFromUrl(){
@@ -36,6 +39,15 @@ function setActiveTab(tabName){
 }
 
 function keyHandler(event){
+	if(event.type == "keydown"){
+		navigationKeyDown(event);
+	}
+	if(getActiveTabFromUrl() == "pong"){
+		pongKeyHandler(event);
+	}
+}
+
+function navigationKeyDown(event){
 	var indexChange = 0;
 	if(event.keyCode == 37){ // left arrow
 		indexChange = - 1;
@@ -64,7 +76,6 @@ function setupChatbot(){
 }
 
 function sendChatbotInput(input){
-	console.log("senc chatbot input:" + input);	
 	formattedInput = input.replace(" ", "+");
 	$.ajax({
 	  url: "http://localhost:5001/?input=" + formattedInput,
@@ -84,3 +95,7 @@ function setupNavigationArrows(){
 			changeTab(-1);
 		});
 }
+
+
+
+
