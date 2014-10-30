@@ -100,14 +100,19 @@ function Ball(x, y, radius, color, stage, speed){
 			this.bouncePad(pad);
 		}else{
 			this.shape.x = this.stage.canvas.width/2;
+			this.radians = 0;
 		}
 	}
 
 	this.bouncePad = function(pad){
 		this.radians = Math.PI - this.radians;
+		var radianCoefficient = 0.003;
+		var mult = this.shape.y - (pad.shape.y + pad.h/2);
 		if(pad.side == LEFT){
+			this.radians += radianCoefficient * mult;
 			this.shape.x = pad.shape.x + pad.w + this.radius 
 		}else if(pad.side == RIGHT){
+			this.radians -= radianCoefficient * mult;
 			this.shape.x = pad.shape.x - this.radius;
 		}else{
 			alert("bad side: " + side);
