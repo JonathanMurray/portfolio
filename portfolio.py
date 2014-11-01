@@ -4,9 +4,9 @@ app = Flask(__name__)
 def layout():
 	tabs = [
 		{"name":"about", "link_text":"about"},
-		{"name":"chatbot", "link_text":"chatbot", "demo":True},
-		{"name":"pong", "link_text":"pong", "demo":True},
-		{"name":"genetic-elevators", "link_text":"genetics"},
+		{"name":"chatbot", "link_text":"chatbot", "demo":True, "description": "A Prolog project"},
+		{"name":"pong", "link_text":"pong", "demo":True, "description": "A simple JavaScript-game"},
+		{"name":"genetic-elevators", "link_text":"genetics", "description": "Computer Science Bachelor's project"},
 		{"name":"soundcloud", "link_text":"soundcloud"},
 		{"name":"youtube", "link_text":"youtube"},
 	]

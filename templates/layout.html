@@ -23,7 +23,7 @@
 			<ul>
 				{% for tab in tabs %}
 					<li> 
-						<a href="#{{tab.name}}"> 
+						<a href="#{{tab.name}}" {% if "description" in tab %} title="{{tab.description}}" {% endif %}> 
 							<img src="static/coin.gif" class="selected-tab-icon"> {{tab.link_text}} 
 							{% if "demo" in tab and tab.demo %}
 								<img src="static/demo.png" class="demo-icon">
