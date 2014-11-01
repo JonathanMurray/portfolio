@@ -14,6 +14,7 @@ var padL;
 var padR;
 var pads;
 var ball;
+var useAI;
 
 function Pad(x, y, w, h, color, side, stage, speed){
 	this.w = w;
@@ -133,7 +134,9 @@ function tick(event) {
 }
 
 function updateGame(event){
-	updateAI();
+	if(useAI){
+		updateAI();	
+	}
 	pads.forEach(function(pad){
 		pad.update();
 		pad.draw();
@@ -154,7 +157,10 @@ function updateAI(){
 	}
 }
 
-function setupPongCanvas(){
+function setupPong(){
+	$("#ai-checkbox").click(aiCheckboxClicked);
+	useAI = $("#ai-checkbox").get(0).checked;
+
 	var padWidth = 15;
 	var padHeight = 100;
 	var padY = 100;
@@ -170,20 +176,50 @@ function setupPongCanvas(){
 	ball = new Ball(stage.canvas.width/2, padY + 20, ballRadius, "white", stage, ballSpeed);
 }
 
+function aiCheckboxClicked(event){
+	useAI = event.target.checked;
+}
+
 function pongKeyHandler(event){
+	handlePadKeys(padL, event.keyCode.toString());
+	if(! useAI){
+		handlePadKeys(padR, event.keyCode.toString());
+	}
+
+
+
+	// event.keyCode.toString()
+}	
+
+function handlePadKeys(pad, keyCode){
+	
 	var wKey = "87";
 	var sKey = "83";
+	var oKey = "79";
+	var lKey = "76";
 
-	var dirs = {
-		"87": UP,
-		"83": DOWN
+	var dirs;
+	if(pad.side == LEFT){
+		dirs = {
+			"87": UP, //W
+			"83": DOWN	//S
+		}
+	}else{
+		dirs = {
+			"79": UP, //O
+			"76": DOWN	//L
+		}
 	}
-	direction = dirs[event.keyCode.toString()];
+	console.log(dirs);
+	direction = dirs[keyCode];
+	console.log(direction);
 	if(validDirections.indexOf(direction) > -1){
 		if(event.type == "keydown"){
-			padL.direction = direction;
-		}else if(event.type == "keyup" && padL.direction == direction){
-			padL.direction = STILL;
+			console.log(direction);
+			pad.direction = direction;
+		}else if(event.type == "keyup" && pad.direction == direction){
+			console.log("BLAHH");
+			pad.direction = STILL;
 		}	
 	}
-}	
+}

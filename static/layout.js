@@ -14,7 +14,7 @@ function setup(){
 	$("nav a").click(navClick);
 	setupChatbot();
 	setupNavigationArrows();
-	setupPongCanvas();
+	setupPong();
 }
 
 function getActiveTabFromUrl(){

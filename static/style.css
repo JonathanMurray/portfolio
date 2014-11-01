@@ -8,7 +8,7 @@ nav{
 	background: gray;
 	float: left;
 	width: 11em;
-	height: 40em;
+	height: 35em;
 }
 
 nav ul{
@@ -64,34 +64,57 @@ nav .demo-icon{
 	float: left;
 	padding: 0 0em 0 0em;
 	background: #FD9;
-	height: 40em;
+	height: 35em;
 	width: calc(100% - 11em);
+	overflow-y: scroll;
 }
 
-.tab .column{
-	height: 100%;
+.active-tab .column{
 	float: left;
 	display: inline-block;
+	
 }
 
-.tab .column:nth-child(even){
+.active-tab .column:nth-child(even){
 	width: 82%;
 }
 
-.tab .column:nth-child(odd){
+.active-tab .column:nth-child(odd){
 	padding-top: 30%;
 	padding-left: 0.7em;
 	width: 5%;
 }
 
-.tab > iframe{
+.active-tab > iframe{
 	margin-top: 2em;
+
 }
 
 .tab:not(.active-tab){
 	visibility: hidden;
 	height: 0;
 }
+
+.tab:not(.active-tab) * {
+	visibility: hidden;
+	height: 0;
+	padding: 0;
+
+}
+
+.arrow-icon{
+	width: 2em;
+	border-radius: 1em;
+	transition: background 0.2s;
+}
+
+.arrow-icon:hover{
+	cursor: pointer;
+	background: #BBD;
+}
+
+
+
 
 
 #chatbot-output{
@@ -112,19 +135,9 @@ nav .demo-icon{
 	display: inline-block;
 }
 
-.arrow-icon{
-	width: 2em;
-	border-radius: 1em;
-	transition: background 0.2s;
-}
 
-.arrow-icon:hover{
-	cursor: pointer;
-	background: #BBD;
-}
 
 #genetics-img{
-	/*width: 35%;*/
 	display: inline-block;
 }
 
