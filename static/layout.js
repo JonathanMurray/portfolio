@@ -26,7 +26,8 @@ function getActiveTabFromUrl(){
 }
 
 function navClick(event){
-	var tabName = event.target.hash.substring(1); //Substring gets rid of first char '#'
+	var aTag = $(event.target).closest("a");
+	var tabName = aTag.get(0).hash.substring(1); //Substring gets rid of first char '#'
 	setActiveTab(tabName);
 }
 
